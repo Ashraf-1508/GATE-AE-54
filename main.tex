@@ -45,7 +45,7 @@
 
 \title{
 %  \logo{
-GATE AE 2023
+GATE AE-54 2023
 
 \large{EE:1205 \brak{Signals  Systems}}
 
@@ -63,13 +63,54 @@ EE23BTECH11041
 \renewcommand{\thetable}{\arabic{table}}
 %\renewcommand{\theequation}{\theenumi}
 \section*{\textit{\textbf{Question}}}
- \noindent Consider the differential equation
+Consider the differential equation
 \begin{align}
 x^2\frac{d^2y}{dx^2} + 4x\frac{dy}{dx} + 2y = 0 \quad \text{for } x\geq 1 \nonumber
 \end{align}
 with initial conditions $y=0$ and $\frac{dy}{dx} = 1$ at
+$x = 1$. The value of $y$ at $x = 2$ is ?
 
-\noindent $x = 1$. The value of $y$ at $x = 2$ is ?
-
-\hfill(GATE AE 2023)
+\hfill {(GATE AE 2023)}
+\section*{\textit{\textbf{Solution}}}
+\noindent Given : 
+\begin{align}
+x^2\frac{d^2y}{dx^2} + 4x\frac{dy}{dx} + 2y = 0 \quad \text{for } x\geq 1 \label{eq:given equation}
+\end{align}
+Using Euler Substitution : 
+\begin{align}
+x= & e^t \label{eq:x}\\
+\frac{dy}{dx}= & e^{-t}\frac{dy}{dt}\label{eq:dy/dx}\\
+\frac{d^2y}{dx^2} = & e^{-2t}\frac{d^2y}{dt^2} - e^{-2t}\frac{dy}{dt}\label{eq:d^2y/dx^2}
+\end{align}
+Substituting equations \eqref{eq:x},\eqref{eq:dy/dx},\eqref{eq:d^2y/dx^2} in equation \eqref{eq:given equation}:
+\begin{align}
+\frac{d^2y}{dt^2} + 3\frac{dy}{dt} + 2y = 0
+\end{align}
+Taking Laplace on Both Sides:
+\begin{align}
+s^2 Y(s) - sy(1)-y'(1) + 3{sY(s) - y(1)} + 2Y(s)= 0\label{eq:laplace}
+\end{align}
+We know that:
+\begin{align}
+y(1)=0\label{eq:given 1}\\
+y'(1)=1\label{eq:given 2}
+\end{align}
+Substituting equations \eqref{eq:given 1},\eqref{eq:given 2} in \eqref{eq:laplace}
+\begin{align}
+s^2Y(s)& + 3Y(s) +2Y(s)= 1\\
+\implies Y(s)=&\frac{1}{s^2 + 3s + 2 }\\
+\implies Y(s)=&\frac{1}{s+1} - \frac{1}{s+2}
+\end{align}
+Taking Inverse Laplace:
+\begin{align}
+y(t) = e^{-t} - e^{-2t}
+\end{align}
+Substituting $x=e^t$:
+\begin{align}
+y(x)=& e^{-\ln{x}} - e^{-2\ln{x}}\\
+y(x)=& \frac{1}{x} - \frac{1}{x^2}
+\end{align}
+\begin{align}
+    \therefore y(2) = 0.25
+\end{align}
 \end{document}

@@ -45,7 +45,7 @@
 
 \title{
 %  \logo{
-GATE AE-54 2023
+Assignment-2
 
 \large{EE:1205 \brak{Signals  Systems}}
 
@@ -97,7 +97,7 @@ y'(1)=1\label{eq:given 2}
 \end{align}
 Substituting equations \eqref{eq:given 1},\eqref{eq:given 2} in \eqref{eq:laplace}
 \begin{align}
-s^2Y(s)& + 3Y(s) +2Y(s)= 1\\
+s^2Y(s)& + 3sY(s) +2Y(s)= 1\\
 \implies Y(s)=&\frac{1}{s^2 + 3s + 2 }\\
 \implies Y(s)=&\frac{1}{s+1} - \frac{1}{s+2}
 \end{align}
@@ -107,10 +107,16 @@ y(t) = e^{-t} - e^{-2t}
 \end{align}
 Substituting $x=e^t$:
 \begin{align}
-y(x)=& e^{-\ln{x}} - e^{-2\ln{x}}\\
-y(x)=& \frac{1}{x} - \frac{1}{x^2}
+y(x)=& e^{-\ln{x}} - e^{-2\ln{x}}\quad x\geq 1 \\
+y(x)=& \frac{1}{x} - \frac{1}{x^2}\quad x\geq 1 
 \end{align}
 \begin{align}
     \therefore y(2) = 0.25
 \end{align}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=\columnwidth]{figs/fig.png}
+    \caption{Plot of y(x) $vs$ x}
+    \label{fig: GATE AE-54(2023)}
+\end{figure}
 \end{document}

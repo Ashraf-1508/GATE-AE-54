@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <math.h>
 
+#define NUM_POINTS 100
+
 int main() {
     FILE *file;
     file = fopen("function_data.dat", "w");
@@ -10,10 +12,14 @@ int main() {
         return 1;
     }
 
-    // Generate 10 data points and write to file
+    // Generate data points and write to file
     double x, result;
-    for (int i = 1; i <= 10; i++) {
-        x = i;
+    double start = 1.0;
+    double end = 10.0;
+    double step = (end - start) / (NUM_POINTS - 1);
+
+    for (int i = 0; i < NUM_POINTS; i++) {
+        x = start + i * step;
         result = 1.0 / x - 1.0 / (x * x);
         fprintf(file, "%.2f %.6f\n", x, result);
     }
@@ -23,4 +29,5 @@ int main() {
 
     return 0;
 }
+
 

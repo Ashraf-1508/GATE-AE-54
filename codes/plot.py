@@ -1,21 +1,24 @@
+import subprocess
 import matplotlib.pyplot as plt
+import numpy as np
 
-# Read data from the dat file
-with open('function_data.dat', 'r') as file:
-    lines = file.readlines()
+# Compile the C code
+subprocess.run(["gcc", "file.c", "-o", "file"])
 
-x_values = []
-y_values = []
+# Run the compiled C code
+subprocess.run(["./file"])
 
-for line in lines:
-    x, y = map(float, line.split())
-    x_values.append(x)
-    y_values.append(y)
+# Read data from the generated file
+data = np.loadtxt("function_data.dat")
 
-# Plot the graph
-plt.plot(x_values, y_values, marker='o', linestyle='-', color='b')
-plt.xlabel('x')
-plt.ylabel('y(x)')
-plt.grid(True)
+# Separate x and y values
+x_values = data[:, 0]
+y_values = data[:, 1]
+
+# Create a line plot
+plt.plot(x_values, y_values, label="Function Data")
+plt.xlabel("x")
+plt.ylabel("y(x)")
+plt.legend()
 plt.show()
 
